@@ -4,6 +4,7 @@
   "private": true,
   "description": "Example Gatsby Site",
   "author": "Danry Ague",
+  "license": "MIT",
   "keywords": [
     "gatsby"
   ],
