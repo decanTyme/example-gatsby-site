@@ -14,7 +14,7 @@
 
 - Uses [Node.js](https://nodejs.org/en/). **Be sure it is installed before cloning**.
 
-- Make sure you have at least a basic understanding of the following: [HTML](https://www.w3schools.com/html/html_intro.asp) (tags, attributes, syntax), [CSS](https://www.w3schools.com/css/css_intro.asp) (basic selectors, syntax), and some basic [JavaScript](https://www.w3schools.com/js/) concepts like variables, objects, and functions. [DOM](https://www.w3schools.com/js/js_htmldom.asp) and [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) understanding is a plus.
+- Make sure you have at least a basic understanding of the following core web fundamentals: [HTML](https://www.w3schools.com/html/html_intro.asp) (tags, attributes, syntax), [CSS](https://www.w3schools.com/css/css_intro.asp) (basic selectors, syntax), and some basic [JavaScript](https://www.w3schools.com/js/) concepts like variables, objects, and functions. HTML [DOM](https://www.w3schools.com/js/js_htmldom.asp), [Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)/[Async/Await](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await), and [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) understanding is a plus.
 
 - A good IDE like [VSCode](https://code.visualstudio.com/), [Sublime Text](https://www.sublimetext.com/), or [Atom](https://atom.io/), and some know-how in running commands though a command line interface or shell.
 
