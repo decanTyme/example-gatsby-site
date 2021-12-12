@@ -56,7 +56,7 @@ $ npm start
 # ...
 ```
 
-Wait for the processes to finish. Depending on your hardware and internet speed, it may take a while. It will look similar to the following if finished:
+Wait for the processes to finish. Depending on your hardware, it may take a while. It will look similar to the following if finished:
 
 ```bash
 # ...
@@ -78,4 +78,4 @@ React.js: <https://reactjs.org/docs/getting-started.html>
 
 GatsbyJS: <https://www.gatsbyjs.com/docs/>
 
-Is Gatsby Really That Great?: <https://blog.logrocket.com/is-gatsby-really-that-great-e7b19c4c1c05/>
+_Is Gatsby Really That Great?_: <https://blog.logrocket.com/is-gatsby-really-that-great-e7b19c4c1c05/>
