@@ -118,7 +118,6 @@ function Navbar() {
 // While it still runs on a regular `.js`, using `.jsx` makes it
 // easier for other devs to know it is a React component
 // rather than just a regular JS file.
-// Note that src/pages is an exception! (because of Gatsby)
 //
 // Head over to `login.js` in src/pages next for some introduction
 // on state management in React.
