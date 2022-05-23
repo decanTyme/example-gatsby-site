@@ -1,7 +1,7 @@
 import React from "react"
 import AppShell from "../components/AppShell"
 
-function About() {
+function AboutPage() {
   return (
     <AppShell>
       {/* Element props act as the "arguments" to the
@@ -52,4 +52,4 @@ const GatsbyLogo = ({ h = 256, w = 256 }) => (
   </svg>
 )
 
-export default About
+export default AboutPage

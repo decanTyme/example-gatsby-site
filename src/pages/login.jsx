@@ -16,10 +16,10 @@ import { mockLoginEndpoint, mockLogoutEndpoint } from "../utils"
 //
 // p.s. Username and password is `admin` and `password` respectively.
 
-function Login() {
+function LoginPage() {
   const [credentials, setCredentials] = useState({ username: "", password: "" })
   const [isAuthenticated, setAuthenticated] = useState(false)
-  const [error, setError] = useState()
+  const [error, setError] = useState(null)
 
   // Promise.then() form - OLD
   const handleLogin = (e) => {
@@ -41,7 +41,7 @@ function Login() {
 
   // async/await form - NEW
   const handleLogout = async () => {
-    // Always use with trycatch!
+    // Always use with try-catch!
     try {
       const response = await mockLogoutEndpoint(
         "https://some.server.com/api/auth"
@@ -80,8 +80,9 @@ function Login() {
               // This is how we usually use input form
               // elements in React for various reasons.
               //
-              // The `onChange` is called to set the credentials when typing
-              // so that data can "captured" and sent to the server.
+              // The `onChange` is fired as the user types
+              // so that data can be "captured" and
+              // sent to the server.
               //
               // @see https://reactjs.org/docs/forms.html#controlled-components
               // @see https://goshacmd.com/controlled-vs-uncontrolled-inputs-react/#conclusion
@@ -130,13 +131,13 @@ function Login() {
 // There are more powerful state management libraries out there
 // that can do even more things like fetching from a GraphQL server,
 // invalidating caches, native support for "loading" components,
-// or managing the entirety of the website (`useState()` can only
-// manage this component or its children.)
+// persistent states, or managing the entirety of the website.
+// (`useState()` can only manage this component or its children)
 //
-// There's also React's built-in `useContext` API that can also
-// be used for state management, but unfortunately it is out
+// There's also React's built-in Context API that can also be used
+// for site-wide state management, but unfortunately it is out
 // of scope for this simple demonstration.
 //
 // That's about the basics! Explore/modify the repo if you want!
 
-export default Login
+export default LoginPage

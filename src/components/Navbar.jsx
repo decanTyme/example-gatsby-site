@@ -10,24 +10,27 @@ const links = [
 ]
 
 // (1)
-// Unlike regular framework-less websites where you would
+// Unlike traditional framework-less websites where you would
 // have to separate CSS from the rest for a better dev
 // experience, in React, or any component-based library,
-// it is almost always better to just include the styling
-// within the component itself to *maximize* re-usable-ness.
+// it is almost always better to just "scope" the styling
+// inside the component to *maximize* re-usable-ness.
+// This eliminates CSS's specificity headaches and makes
+// the component easier to maintain in the long run.
 //
-// This makes the component easier to maintain in the
-// long run. The only caveat would be that it would be
-// harder to synchronize the styling of the entire website.
-//
-// Don't worry tho, UI libraries like MaterialUI has solutions
-// for this like theming, but for this short example I used
-// a simple CSS-in-JS tool called `styled-components`.
-const Nav = styled.nav`
+// There are tons of styling frameworks out there, but for
+// this short example I used a simple CSS-in-JS tool called
+// `styled-components`. If you've worked with CSS modules before,
+// this works exactly the same.
+
+const Header = styled.header`
   width: 100%;
+  display: flex;
 `
 
-const UnorderList = styled.ul`
+const Nav = styled.nav``
+
+const UnorderedList = styled.ul`
   display: flex;
   padding: 0;
 `
@@ -39,7 +42,7 @@ const ListItem = styled.li`
   padding: 1rem 2rem;
 `
 
-const BrandName = styled.li`
+const BrandName = styled.div`
   display: flex;
   align-items: center;
   list-style: none;
@@ -50,43 +53,49 @@ const BrandName = styled.li`
 const Button = styled.button`
   background-color: transparent;
   border: 0;
-  cursor: pointer;
   font-size: 1.25rem;
 `
 
 // Yep, ALL components are *just* functions.
 function Navbar() {
   return (
-    <Nav>
-      <UnorderList>
-        <BrandName>
-          <Button>Example Gatsby Website</Button>
-        </BrandName>
+    <Header>
+      <BrandName>
+        <Button>Example Gatsby Website</Button>
+      </BrandName>
 
-        {/* (2)
+      <Nav>
+        <UnorderedList>
+          {/* 
+            (2)
             Notice how we're using JS built-in functions cleanly
             inside this "HTML"?
-            This is the beauty of React! we don't have to do
-            complicated things like `document.createElement()`,
-            React does the heavy lifting for us! */}
-        {links.map(({ text, url }) => (
-          <ListItem
-            key={text} // Always include `key` when mapping components!
-          >
-            <Link
-              to={url}
-              // Inline HTML styles are okay
-              style={{ textDecoration: "none", textTransform: "capitalize" }}
+
+            This is the beauty of React! We don't have to do
+            complicated things imperatively like 
+            `document.createElement()`, 
+            React does the heavy lifting for us!
+            
+            This allows us to be declarative all the way!!
+          */}
+          {links.map(({ text, url }) => (
+            <ListItem
+              key={text} // Always include `key` when mapping components!
             >
-              {text}
-            </Link>
-          </ListItem>
-        ))}
-        {/* (3)
+              <Link
+                to={url}
+                // Inline HTML styles are okay, but it uses objects instead
+                style={{ textDecoration: "none", textTransform: "capitalize" }}
+              >
+                {text}
+              </Link>
+            </ListItem>
+          ))}
+          {/* (3)
             p.s. If you don't know what `map` is, it's just an array
             function that takes another function that modifies the 
-            array, then returns the new array. The fn above just 
-            essentially becomes:
+            array, then returns the modified array. The fn above 
+            just essentially becomes:
             
             ```
               <ListItem>
@@ -105,19 +114,20 @@ function Navbar() {
                 </Link>
               </ListItem>
             ```
-
-              ...when rendered. */}
-      </UnorderList>
-    </Nav>
+            
+          ...when rendered. */}
+        </UnorderedList>
+      </Nav>
+    </Header>
   )
 }
 
 // (4)
-// Finally, as you can see the file extension should be JSX (`.jsx`).
+// Finally, as you can see the file extension should be `.jsx`.
 //
-// While it still runs on a regular `.js`, using `.jsx` makes it
-// easier for other devs to know it is a React component
-// rather than just a regular JS file.
+// While it is still okay to use a regular `.js`, using `.jsx` makes
+// it easier for other devs to know it is a React component rather
+// than just a regular JS file. A must-have for HUGE codebases.
 //
 // Head over to `login.js` in src/pages next for some introduction
 // on state management in React.

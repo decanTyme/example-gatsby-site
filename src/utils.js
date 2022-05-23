@@ -13,7 +13,7 @@ export const mockLoginEndpoint = async (serverURI, data) => {
 
   if (data.username !== "admin" || data.password !== "password")
     return new Promise((_, reject) =>
-      sleep(reject, Math.random() * 2000, "Invalid credentials")
+      sleep(reject, rand(500, 2000), "Invalid credentials")
     )
 
   return new Promise((resolve) => sleep(resolve, rand(750, 3000), true))
