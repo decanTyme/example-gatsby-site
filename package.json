@@ -19,7 +19,7 @@
     "@mdx-js/mdx": "^2.1.5",
     "@mdx-js/react": "^2.1.5",
     "babel-plugin-styled-components": "^2.0.2",
-    "gatsby": "^5.2.0",
+    "gatsby": "^5.10.0",
     "gatsby-plugin-google-analytics": "^5.2.0",
     "gatsby-plugin-image": "^3.2.0",
     "gatsby-plugin-manifest": "^5.2.0",
