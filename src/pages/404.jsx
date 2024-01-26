@@ -26,11 +26,12 @@ const codeStyles = {
   borderRadius: 4,
 }
 
-function NotFound() {
+function NotFoundPage() {
   return (
     <main style={pageStyles}>
       <title>Not found</title>
       <h1 style={headingStyles}>Page not found</h1>
+
       <p style={paragraphStyles}>
         Sorry{" "}
         <span role="img" aria-label="Pensive emoji">
@@ -52,4 +53,4 @@ function NotFound() {
   )
 }
 
-export default NotFound
+export default NotFoundPage

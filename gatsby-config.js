@@ -1,3 +1,4 @@
+/** @type {import("gatsby").GatsbyConfig} */
 module.exports = {
   siteMetadata: {
     siteUrl: "https://www.yourdomain.tld",
@@ -32,7 +33,6 @@ module.exports = {
         name: "images",
         path: "./src/images/",
       },
-      __key: "images",
     },
     {
       resolve: "gatsby-source-filesystem",
@@ -40,7 +40,6 @@ module.exports = {
         name: "pages",
         path: "./src/pages/",
       },
-      __key: "pages",
     },
   ],
 }

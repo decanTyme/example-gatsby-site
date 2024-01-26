@@ -80,7 +80,7 @@ function Navbar() {
           */}
           {links.map(({ text, url }) => (
             <ListItem
-              key={text} // Always include `key` when mapping components!
+              key={text} // Always include `key` prop when mapping components!
             >
               <Link
                 to={url}

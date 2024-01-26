@@ -94,6 +94,7 @@ function LoginPage() {
                 }))
               }
               required
+              autoFocus
             />
             <br />
 
