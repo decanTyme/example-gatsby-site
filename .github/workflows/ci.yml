@@ -16,10 +16,10 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          cache: yarn
+          cache: npm
           node-version: "lts/*"
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: npm install
 
       - run: yarn test:ci
