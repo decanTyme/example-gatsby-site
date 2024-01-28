@@ -6,15 +6,17 @@ import { mockLoginEndpoint, mockLogoutEndpoint } from "../utils"
 // (1)
 // Managing states
 //
-// In React, we typically manage states through a hook called `useState()`.
-// Basically, this hook returns two things: the value and the setter.
-// The setter is used to update the value, and when that happens,
-// the UI automatically re-renders. `useState` can take an argument
-// to be used as the initial value.
+// In React, we typically manage component states through a
+// hook called `useState()`. Basically, this hook returns
+// two things: a tuple containing the value and the setter.
+// The setter is used to update the value, and when that
+// happens, the UI automatically re-renders. `useState` can
+// take an argument to be used as the initial value.
 //
 // Tip: Open your browser's DevTools for this!
 //
-// p.s. Username and password is `admin` and `password` respectively.
+// p.s. Username and password is `admin` and `password`,
+// respectively.
 
 function LoginPage() {
   const [credentials, setCredentials] = useState({ username: "", password: "" })
@@ -80,19 +82,19 @@ function LoginPage() {
               // This is how we usually use input form
               // elements in React for various reasons.
               //
-              // The `onChange` is fired as the user types
-              // so that data can be "captured" and
-              // sent to the server.
+              // The `onChange` prop is called as the user
+              // types and we provide a function to "capture"
+              // that data so we can send it to the server.
               //
               // @see https://reactjs.org/docs/forms.html#controlled-components
               // @see https://goshacmd.com/controlled-vs-uncontrolled-inputs-react/#conclusion
               value={credentials.username}
-              onChange={(e) =>
+              onChange={(e) => {
                 setCredentials((prevState) => ({
                   ...prevState,
                   username: e.target.value,
                 }))
-              }
+              }}
               required
               autoFocus
             />
@@ -103,12 +105,12 @@ function LoginPage() {
               id="password"
               type="password"
               value={credentials.password}
-              onChange={(e) =>
+              onChange={(e) => {
                 setCredentials((prevState) => ({
                   ...prevState,
                   password: e.target.value,
                 }))
-              }
+              }}
               required
             />
             <br />
@@ -130,12 +132,12 @@ function LoginPage() {
 
 // (5)
 // There are more powerful state management libraries out there
-// that can do even more things like fetching from a GraphQL server,
-// invalidating caches, native support for "loading" components,
-// persistent states, or managing the entirety of the website.
+// that can do even more things like fetching from a GraphQL
+// server, stale data management, pagination and lazy loading,
+// optimistic updates, or even managing the entirety of a web app.
 // (`useState()` can only manage this component or its children)
 //
-// There's also React's built-in Context API that can also be used
+// There's also React's built-in Context API that can be used
 // for site-wide state management, but unfortunately it is out
 // of scope for this simple demonstration.
 //

@@ -12,16 +12,19 @@ const links = [
 // (1)
 // Unlike traditional framework-less websites where you would
 // have to separate CSS from the rest for a better dev
-// experience, in React, or any component-based library,
+// experience, in React (or any component-based library),
 // it is almost always better to just "scope" the styling
-// inside the component to *maximize* re-usable-ness.
-// This eliminates CSS's specificity headaches and makes
-// the component easier to maintain in the long run.
+// inside the component itself.
+//
+// This eliminates CSS' specificity headaches since it won't
+// interfere with any other styling outside the component.
+// It also makes it easier to maintain in the long run.
 //
 // There are tons of styling frameworks out there, but for
 // this short example I used a simple CSS-in-JS tool called
-// `styled-components`. If you've worked with CSS modules before,
-// this works exactly the same.
+// `styled-components`. If you've worked with CSS modules
+// before, this provides exactly the same benefits, just
+// with more features!
 
 const Header = styled.header`
   width: 100%;
@@ -33,13 +36,25 @@ const Nav = styled.nav``
 const UnorderedList = styled.ul`
   display: flex;
   padding: 0;
+  column-gap: 0.5rem;
 `
 
 const ListItem = styled.li`
   display: flex;
   align-items: center;
   list-style: none;
-  padding: 1rem 2rem;
+`
+
+const NavigationLink = styled(Link)`
+  padding: 0.75rem 1.5rem;
+  /* You can dynamically set styles! */
+  background-color: ${({ $active }) => $active && "#663497"};
+  color: ${({ $active }) => $active && "#fff"};
+  border-radius: 0.5rem;
+
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 `
 
 const BrandName = styled.div`
@@ -50,7 +65,7 @@ const BrandName = styled.div`
   margin-left: 0;
 `
 
-const Button = styled.button`
+const Button = styled.button.attrs({ type: "button" })`
   background-color: transparent;
   border: 0;
   font-size: 1.25rem;
@@ -82,36 +97,37 @@ function Navbar() {
             <ListItem
               key={text} // Always include `key` prop when mapping components!
             >
-              <Link
+              <NavigationLink
                 to={url}
-                // Inline HTML styles are okay, but it uses objects instead
+                // Inline HTML styles are okay, but it accepts objects instead
                 style={{ textDecoration: "none", textTransform: "capitalize" }}
+                $active={window.location.pathname === url}
               >
                 {text}
-              </Link>
+              </NavigationLink>
             </ListItem>
           ))}
           {/* (3)
             p.s. If you don't know what `map` is, it's just an array
-            function that takes another function that modifies the 
-            array, then returns the modified array. The fn above 
-            just essentially becomes:
+            function that creates a new array and modifies every element
+            according to the the predicate function provided, then returns 
+            the modified new array. The above just essentially becomes:
             
             ```
               <ListItem>
-                <Link to="/some-url">
-                  Some text
-                </Link>
+                <NavigationLink to="/">
+                  home
+                </NavigationLink>
               </ListItem>
               <ListItem>
-                <Link to="/another-url">
-                  Another text
-                </Link>
+                <NavigationLink to="/about">
+                  about
+                </NavigationLink>
               </ListItem>
               <ListItem>
-                <Link to="/09763728721">
-                  me broke send gcash ?
-                </Link>
+                <NavigationLink to="/login">
+                  log in
+                </NavigationLink>
               </ListItem>
             ```
             
@@ -129,7 +145,7 @@ function Navbar() {
 // it easier for other devs to know it is a React component rather
 // than just a regular JS file. A must-have for HUGE codebases.
 //
-// Head over to `login.js` in src/pages next for some introduction
+// Head over to `login.jsx` in src/pages next for some introduction
 // on state management in React.
 
 export default Navbar

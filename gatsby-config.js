@@ -4,6 +4,7 @@ module.exports = {
     siteUrl: "https://www.yourdomain.tld",
     title: "Example Gatsby Site",
   },
+  trailingSlash: "never",
   plugins: [
     {
       resolve: `gatsby-plugin-styled-components`,

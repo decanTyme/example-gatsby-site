@@ -36,6 +36,7 @@ describe("Login Page", () => {
     expect(usernameInput).toHaveValue("admin")
 
     const passwordInput = screen.getByLabelText("Password")
+    expect(passwordInput).not.toHaveFocus()
     await userEvent.type(passwordInput, "password")
     expect(passwordInput).toHaveValue("password")
 
@@ -68,5 +69,8 @@ describe("Login Page", () => {
     const alert = await screen.findByRole("alert", undefined, { timeout: 3000 })
     expect(alert).toBeInTheDocument()
     expect(alert).toHaveTextContent("Invalid credentials")
+
+    await userEvent.keyboard("[Enter]")
+    expect(alert).not.toBeInTheDocument()
   })
 })

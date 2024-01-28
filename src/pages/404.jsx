@@ -1,7 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
 
-// Traditional object styles
 const pageStyles = {
   color: "#232129",
   padding: "96px",
