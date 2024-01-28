@@ -4,7 +4,7 @@ import AppShell from "../components/AppShell"
 // (1)
 // In React (or any React meta-framework such as Gatsby),
 // we treat HTML tags "as-is" so if you already know HTML,
-// learning React should be an easy enough transfer.
+// learning React should be a relatively easy transfer.
 //
 // For example, the `<div>` below is just like what you'd
 // expect in plain HTML, it's just a `<div>` element.
@@ -19,16 +19,16 @@ function HomePage() {
   // "effect" would be appending text to an element's
   // text content every second.
   //
-  // Previously, in a class-based component, there were
-  // multiple component lifecycle methods. In a functional
-  // component, the more commonly used methods has been
+  // Previously, in class-based components, there were
+  // multiple component lifecycle methods. In functional
+  // components, the more commonly used methods has been
   // conveniently condensed into one hook.
   //
   // @see https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
   useEffect(() => {
     // (2)
     // Because `<div>` is just a regular HTML tag, if you know
-    // basic JS, you can still access it via the `document`!
+    // basic JS, you can still access it via `document`!
     const helloWorldDiv = document.getElementById("helloWorld")
 
     let __timeout

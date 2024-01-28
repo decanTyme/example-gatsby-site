@@ -5,16 +5,18 @@ export const sleep = async (fn, ms, ...args) => {
   return fn(...args)
 }
 
+/* istanbul ignore next */
 const rand = (min = 0, max = 1) =>
   Math.floor(Math.random() * (max - min + 1) + min)
 
 export const mockLoginEndpoint = async (serverURI, data) => {
   console.log(`Fetching from ${serverURI}...`)
 
-  if (data.username !== "admin" || data.password !== "password")
+  if (data.username !== "admin" || data.password !== "password") {
     return new Promise((_, reject) =>
       sleep(reject, rand(500, 2000), "Invalid credentials")
     )
+  }
 
   return new Promise((resolve) => sleep(resolve, rand(750, 3000), true))
 }
